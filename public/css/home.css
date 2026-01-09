@@ -1,0 +1,848 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+  font-weight: 800;
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  margin-left: -87px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  position: relative;
+  margin-right: -2px;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #3D0000;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu .btn {
+  padding: 8px 16px;
+  background: #3D0000;
+  color: #fff;
+  border-radius: 6px;
+  margin-right: -120px;
+}
+
+.nav-menu .btn:hover {
+  background: #FF0000;
+}
+
+/* =====================
+   HERO AUTO SLIDER
+===================== */
+.hero {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.hero-slider {
+  position: relative;
+  width: 1200px;
+  height: 520px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+/* SLIDE */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* BACKGROUND */
+.slide1 { background-image: url("../images/hero.jpg"); }
+.slide2 { background-image: url("../images/hero2.jpg"); }
+.slide3 { background-image: url("../images/hero3.jpg"); }
+
+/* HERO TEXT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  color: white;
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
+
+/* =====================
+   HERO 2 / BANNER
+===================== */
+.hero2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+.banner {
+  width: 100%;
+  max-width: 4010px;
+  padding: 70px 90px;
+  background: #f3f4f6;
+  border-radius: 32px;
+  text-align: center;
+}
+.banner h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.banner p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =====================
+   CARD STACK (KECIL & RAPI)
+===================== */
+.stack {
+  width: 40%;
+  max-width: 280px;
+  margin: auto;
+  transition: 0.25s ease;
+}
+
+.stack:hover {
+  transform: rotate(4deg);
+}
+
+.stack:hover .card::before {
+  transform: translateY(-2%) rotate(-4deg);
+}
+
+.stack:hover .card::after {
+  transform: translateY(2%) rotate(4deg);
+}
+
+.card {
+  aspect-ratio: 3 / 2;
+  border: 3px solid #000;
+  background-color: #fff;
+  position: relative;
+  padding: 5% 5% 10% 5%;
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid #000;
+  background: #fff;
+  z-index: -1;
+  transition: 0.15s ease;
+}
+
+.card::before {
+  transform: translateY(-2%) rotate(-6deg);
+}
+
+.card::after {
+  transform: translateY(2%) rotate(6deg);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #eee;
+  border: 3px solid #000;
+  background-image: url('../images/hero.jpg');
+}
+
+/* =====================
+   STATS
+===================== */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 120px;
+}
+
+.stat-card {
+  width: 260px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
+
+.stat-card h2 {
+  font-size: 48px;
+  color: #3D0000;
+}
+
+.stat-card p {
+  margin-top: 10px;
+  color: #555;
+}
+
+/* --- VISION & MISSION SECTION --- */
+.vision-mission {
+  padding: 100px 5%;
+  background: #ffffff;
+}
+
+.container-vision {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* BOX VISI (FLEXBOX) */
+.vision-box {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
+}
+
+.vision-image {
+  flex: 1;
+}
+
+.vision-image img {
+  width: 100%;
+  border-radius: 40px; /* Sesuai request biar keren */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.vision-content {
+  flex: 1;
+}
+
+.vision-content span {
+  color: #3D0000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.vision-content h2 {
+  font-size: 3rem;
+  margin: 15px 0;
+  color: #222;
+}
+
+.vision-content p {
+  line-height: 1.8;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* WRAPPER MISI (BEDA DARI VISI) */
+.mission-wrapper {
+  margin-top: 50px;
+}
+
+.mission-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.mission-header h2 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.divider {
+  width: 70px;
+  height: 5px;
+  background: #3D0000;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+/* GRID MISI */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* CARD MISI KEREN */
+.mission-card {
+  background: #f8f9fa;
+  padding: 50px 40px;
+  border-radius: 35px;
+  position: relative;
+  transition: all 0.4s ease;
+  border: 1px solid #eee;
+}
+
+.mission-card:hover {
+  transform: translateY(-15px);
+  background: #fff;
+  border-color: #3D0000;
+  box-shadow: 0 30px 60px rgba(0,114,255,0.15);
+}
+
+.m-count {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(0, 114, 255, 0.08); /* Angka transparan di pojok */
+}
+
+.mission-card h3 {
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 1.5rem;
+}
+
+.mission-card p {
+  color: #777;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .vision-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+}
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .hero-slider {
+    width: 95%;
+    height: 450px;
+  }
+
+  .hero-content {
+    padding: 60px;
+  }
+
+  .banner {
+    padding: 60px 40px;
+  }
+
+  .vision-box {
+    gap: 50px;
+  }
+}
+
+/* HANDPHONE */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-menu {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  /* HERO */
+  .hero {
+    margin-top: 30px;
+  }
+
+  .hero-slider {
+    height: 360px;
+    border-radius: 24px;
+  }
+
+  .hero-content {
+    padding: 40px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  /* BANNER */
+  .banner {
+    padding: 50px 25px;
+    border-radius: 24px;
+  }
+
+  .banner h1 {
+    font-size: 30px;
+  }
+
+  .banner p {
+    font-size: 14px;
+  }
+
+  /* CARD STACK */
+  .stack {
+    width: 200px;
+  }
+
+  /* STATS */
+  .stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .stat-card {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  /* VISI MISI */
+  .vision-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vision-content h2 {
+    font-size: 28px;
+  }
+
+  .vision-content p {
+    font-size: 14px;
+  }
+
+  /* MISI */
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-card {
+    padding: 35px;
+  }
+}
+
+/* HP KECIL */
+@media (max-width: 480px) {
+
+  .hero-slider {
+    height: 300px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+
+  .banner h1 {
+    font-size: 24px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .logo-img {
+    width: 34px;
+    height: 34px;
+  }
+}
+/* --- SAMBUTAN SECTION --- */
+.greetings-section {
+  padding: 100px 5%;
+  background: #fdfdfd;
+}
+
+.container-greetings {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.greetings-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.greetings-header span {
+  color: #3D0000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.greetings-header h2 {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+.greetings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* KARTU SAMBUTAN */
+.greet-card {
+  background: white;
+  padding: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.greet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,114,255,0.1);
+}
+
+.greet-img img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Foto bulat */
+  object-fit: cover;
+  border: 4px solid #3D0000;
+}
+
+.greet-text i {
+  font-size: 2rem;
+  color: #3D0000;
+  opacity: 0.3;
+  margin-bottom: 10px;
+}
+
+.greet-text p {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.greet-text h4 {
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.greet-text span {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* Responsif HP */
+@media (max-width: 900px) {
+  .greetings-grid {
+    grid-template-columns: 1fr;
+  }
+  .greet-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* --- FOOTER STYLES --- */
+:root {
+    --f-bg: #ffffff;
+    --f-text-main: #2d3436;
+    --f-text-muted: #636e72;
+    --f-accent: #3D0000;
+    --f-border: #f1f2f6;
+}
+
+.footer-main {
+    background-color: var(--f-bg);
+    border-top: 1px solid var(--f-border);
+    padding: 80px 0 0 0; /* Padding atas besar untuk jarak content */
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Heading & Typography */
+.footer-heading {
+    color: var(--f-text-main);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--f-accent);
+    margin-top: 10px;
+}
+
+.footer-link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link-item {
+    margin-bottom: 12px;
+}
+
+.footer-link-item a {
+    color: var(--f-text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link-item a:hover {
+    color: var(--f-accent);
+    padding-left: 8px; /* Efek geser halus saat hover */
+}
+
+/* Contact Info Section */
+.contact-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-box i {
+    color: var(--f-accent);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    color: var(--f-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Map Styling */
+.map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border: 1px solid var(--f-border);
+    line-height: 0; /* Menghilangkan whitespace di bawah iframe */
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    background: #fcfcfc;
+    border-top: 1px solid var(--f-border);
+    padding: 25px 0;
+    margin-top: 60px;
+}
+
+.copyright-text {
+    color: #b2bec3;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+/* --- TEAM VERTICAL STYLE --- */
+.team-vertical {
+  padding: 100px 5%;
+  background: #fdfdfd;
+}
+
+.container-team {
+  max-width: 900px; /* Lebih kecil agar fokus ke tengah */
+  margin: 0 auto;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.line-blue {
+  width: 50px;
+  height: 4px;
+  background: #0072ff;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+/* LIST KE BAWAH */
+.team-vertical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.member-row {
+  width: 100%;
+}
+
+.member-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 30px;
+  gap: 40px;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.member-card:hover {
+  transform: translateX(15px); /* Geser sedikit ke kanan saat hover */
+  border-color: #0072ff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+/* KHUSUS KETUA LEBIH BESAR */
+.main-leader {
+  background: linear-gradient(to right, #ffffff, #f0f7ff);
+  border-left: 8px solid #0072ff;
+}
+
+.member-img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.member-info .role {
+  color: #0072ff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.member-info h3 {
+  font-size: 1.8rem;
+  margin: 5px 0 10px;
+  color: #222;
+}
+
+.member-info p {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.member-social a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE UNTUK HP */
+@media (max-width: 600px) {
+  .member-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .member-card:hover {
+    transform: translateY(-10px);
+  }
+}
